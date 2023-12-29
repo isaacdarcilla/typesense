@@ -21,7 +21,7 @@ module.exports = (async () => {
   const schema = {
     name: collectionName,
     fields: [
-      { name: 'animal_name', type: 'string' },
+      { name: 'animal_name', type: 'string', facet: true },
       { name: 'source', type: 'string' },
       { name: 'text', type: 'string', optional: true },
       { name: 'media_link', type: 'string', optional: true },
