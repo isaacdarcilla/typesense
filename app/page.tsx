@@ -5,7 +5,7 @@ import { title } from "@/components/primitives";
 import { Results } from "@/components/results";
 import { typesense } from "@/config/typesense";
 import { SearchResult } from "@/types";
-import { Input } from '@nextui-org/input';
+import { Input } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 
@@ -31,7 +31,7 @@ export default function Home() {
 
 		typesense.collections(process.env.NEXT_PUBLIC_TYPESENSE_COLLECTION_NAME as string)
 			.documents()
-			.search({ 'q': searchValue, 'query_by': 'animal_name,text' })
+			.search({ q: searchValue, query_by: 'animal_name,text', limit: 250 })
 			.then(function (searchResults: any) {
 				setSearchResults(searchResults)
 			})
@@ -54,10 +54,10 @@ export default function Home() {
 					radius="full"
 					className="max-w-xl mx-auto py-3"
 					autoFocus
+					type="search"
 					startContent={<SearchIcon className="text-neutral-400 mr-2" />}
 				/>
 			</div>
-			{searchResults && <small className="-mt-4">✨ {searchResults?.found} results found - Searched {searchResults?.out_of} recipes in {searchResults?.search_time_ms}ms.</small>}
 
 			<Results results={searchResults} />
 		</section>

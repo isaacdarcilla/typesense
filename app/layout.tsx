@@ -54,6 +54,14 @@ export default function RootLayout({
 							>
 								<p className="text-primary">Dataset</p>
 							</Link>
+							&bull;
+							<Link
+								isExternal
+								className="flex items-center gap-1 text-current"
+								href="https://github.com/isaacdarcilla/typesense"
+							>
+								<p className="text-primary">Repository</p>
+							</Link>
 						</footer>
 					</div>
 				</Providers>

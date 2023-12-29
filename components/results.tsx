@@ -1,8 +1,9 @@
-import { SearchResult } from "@/types";
+import { SearchResult } from '@/types';
 
 export const Results = ({ results }: { results: SearchResult | null }) => {
   return (
-    <div className="w-full space-y-4">
+    <div className="max-w-xl space-y-4">
+      {results && <small className="-mt-4 text-end">✨ {results?.found} results found - Searched {results?.out_of} recipes in {results?.search_time_ms}ms.</small>}
       {results?.hits?.map((result, index) => (
         <div key={index} className="flex flex-row items-center bg-white border border-gray-200 rounded-lg mx-auto max-w-xl hover:scale-105">
           <div className="flex flex-col justify-between p-4 leading-normal">
