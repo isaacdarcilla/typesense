@@ -21,7 +21,8 @@ export const Results = ({ results }: { results: SearchResult | null }) => {
           <div className="flex flex-col justify-between p-4 leading-normal">
             {result.document.poster_path && (
               <Image
-                className="rounded-none mb-2"
+                radius="none"
+                className="mb-2"
                 alt={result.document.title}
                 src={`https://image.tmdb.org/t/p/w45${result.document.poster_path}`}
               />
