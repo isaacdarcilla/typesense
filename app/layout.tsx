@@ -50,7 +50,7 @@ export default function RootLayout({
 							<Link
 								isExternal
 								className="flex items-center gap-1 text-current"
-								href="https://github.com/ekohrt/animal-fun-facts-dataset"
+								href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json"
 							>
 								<p className="text-primary">Dataset</p>
 							</Link>

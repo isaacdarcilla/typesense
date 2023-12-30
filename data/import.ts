@@ -4,7 +4,7 @@ const fs = require('fs/promises');
 
 module.exports = (async () => {
   const Typesense = require('typesense');
-  let file = await fs.readFile("data/animals.jsonl");
+  let file = await fs.readFile("data/movies.jsonl");
   
   let client = new Typesense.Client({
     'nodes': [{
@@ -16,16 +16,26 @@ module.exports = (async () => {
     'connectionTimeoutSeconds': 2
   })
 
-  const collectionName = `animals_${Date.now()}`;
+  const collectionName = `movies_${Date.now()}`;
 
   const schema = {
     name: collectionName,
     fields: [
-      { name: 'animal_name', type: 'string', facet: true },
-      { name: 'source', type: 'string' },
-      { name: 'text', type: 'string', optional: true },
-      { name: 'media_link', type: 'string', optional: true },
-      { name: 'wikipedia_link', type: 'string', optional: true },
+      { name: 'budget', type: 'string', optional: true },
+      { name: 'genres', type: 'string' },
+      { name: 'homepage', type: 'string', optional: true },
+      { name: 'original_language', type: 'string', optional: true },
+      { name: 'overview', type: 'string', optional: true },
+      { name: 'popularity', type: 'string', optional: true },
+      { name: 'poster_path', type: 'string', optional: true },
+      { name: 'release_date', type: 'string', sort: true, optional: true },
+      { name: 'revenue', type: 'string', optional: true },
+      { name: 'runtime', type: 'string', optional: true },
+      { name: 'tagline', type: 'string', optional: true },
+      { name: 'title', type: 'string' },
+      { name: 'vote_average', type: 'string', optional: true },
+      { name: 'vote_count', type: 'string', optional: true },
+      { name: 'certification', type: 'string', optional: true },
     ],
   };
 
