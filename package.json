@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "ts:index": "node data/import.ts"
+    "ts:index": "node data/import.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nextui-org/button": "2.0.26",
@@ -52,6 +53,7 @@
     "@typescript-eslint/parser": "^6.16.0",
     "eslint-config-next": "14.0.2",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.2"
+    "eslint-plugin-prettier": "^5.1.2",
+    "husky": "^8.0.0"
   }
 }
