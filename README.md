@@ -20,7 +20,7 @@ The movie dataset is from <a href="https://glin.github.io/reactable/articles/pop
 
     .
     ├── app                   # App router
-    ├── components            # Resusable components
+    ├── components            # Reusable components
     ├── config                # Configs for fonts, site and Typesense
     ├── data                  # Movie data
     │   ├── import.ts         # Import functions
