@@ -5,9 +5,10 @@ import { title } from "@/components/primitives";
 import { Results } from "@/components/results";
 import { typesense } from "@/config/typesense";
 import { SearchResult } from "@/types";
-import { Code, Input } from "@nextui-org/react";
+import { Input, Kbd } from "@nextui-org/react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useRef, useState } from "react";
+import { siteConfig } from "@/config/site";
 import Lottie from "react-lottie-player";
 import lottieJson from "../public/animation/movie.json";
 import Image from "next/image";
@@ -42,10 +43,10 @@ export default function Home() {
     }
   };
 
-  const handleSearch = (query: string) => {
+  const handleSearch = async (query: string) => {
     setSearchValue(query);
 
-    typesense
+    await typesense
       .collections(process.env.NEXT_PUBLIC_TYPESENSE_COLLECTION_NAME as string)
       .documents()
       .search({
@@ -54,9 +55,10 @@ export default function Home() {
         limit: 250,
         sort_by: "release_date:desc",
       })
-      .then(function (searchResults: any) {
+      .then((searchResults: any) => {
         setSearchResults(searchResults);
-      });
+      })
+      .catch(() => setSearchResults(null));
 
     router.push(pathname + "?" + createQueryString("query", query));
   };
@@ -70,7 +72,7 @@ export default function Home() {
         <div className="flex items-center gap-1">
           <small>Powered by </small>
           <a
-            href="https://typesense.org"
+            href={siteConfig.typesenseSite}
             target="_blank"
             rel="noopener"
             title="Movie"
@@ -79,7 +81,7 @@ export default function Home() {
               width={100}
               height={120}
               alt="Image"
-              src="https://recipe-search.typesense.org/typesense.b64b6193.svg"
+              src={siteConfig.typesenseImage}
             />
           </a>
         </div>
@@ -108,15 +110,16 @@ export default function Home() {
               style={{ width: 140, height: 140 }}
             />
             <p className="-mt-3 text-center mx-auto text-md text-gray-500">
-              Search movies... Try{" "}
-              <Code
+              Search movies. Try{" "}
+              <Kbd
                 onClick={() => {
                   handleSearch("Inception");
                 }}
                 className="text-blue-600 cursor-pointer"
               >
                 Inception
-              </Code>
+              </Kbd>
+              .
             </p>
           </>
         )}

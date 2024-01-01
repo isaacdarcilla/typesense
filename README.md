@@ -1,40 +1,58 @@
-# Next.js & NextUI Template
+# Typesense Movie Search
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+This project is a requirement for Typesense job application.
 
 ## Technologies Used
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
+- [Typesense](https://typesense.org)
+- [Next.js 14](https://nextjs.org/docs/getting-started)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
 
-## How to Use
+### How to Use
 
+I have used `pnpm` package manager for this project. Below are the installation instructions
+using `pnpm`.
 
-### Use the template with create-next-app
-
-To create a new project based on this template using `create-next-app`, run the following command:
+To install locally, run the following command:
 
 ```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
+git clone https://github.com/isaacdarcill/typesense
 ```
 
-### Install dependencies
+### Install Dependencies
 
 ```bash
-npm install
+cd typesense
+pnpm install
 ```
 
-### Run the development server
+After installing the dependencies, create your account and generate API keys in [Typesense](typesense.org)
+Create a new `.env` file, copy and paste the contents from `.env.example`.
+
+```
+NEXT_PUBLIC_TYPESENSE_HOST=
+NEXT_PUBLIC_TYPESENSE_PORT=
+NEXT_PUBLIC_TYPESENSE_PROTOCOL=
+NEXT_PUBLIC_TYPESENSE_ADMIN_API_KEY=
+NEXT_PUBLIC_TYPESENSE_SEARCH_ONLY_API_KEY=
+NEXT_PUBLIC_TYPESENSE_COLLECTION_NAME=
+```
+
+### Import Data in Typesense
 
 ```bash
-npm run dev
+pnpm typesense:import
 ```
 
-## License
+### Run the Development Server
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+```bash
+pnpm dev
+```
+
+### Run Linter and Formatter
+
+```bash
+pnpm lint:fix
+```

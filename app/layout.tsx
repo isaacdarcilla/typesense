@@ -42,7 +42,7 @@ export default function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href="https://isaacdarcilla.com"
+                href={siteConfig.website}
               >
                 <p className="text-primary">Isaac Arcilla</p>
               </Link>
@@ -50,7 +50,7 @@ export default function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json"
+                href={siteConfig.dataset}
               >
                 <p className="text-primary">Dataset</p>
               </Link>
@@ -58,7 +58,7 @@ export default function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href="https://github.com/isaacdarcilla/typesense"
+                href={siteConfig.repository}
               >
                 <p className="text-primary">Repository</p>
               </Link>
