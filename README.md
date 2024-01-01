@@ -9,17 +9,21 @@ This project is a requirement for Typesense job application. This is a demo that
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
+### Prequisites
+
+- [pnpm](https://pnpm.io/installation) // you can still use npm or yarn
+- Typesense API
+
 The movie dataset is from <a href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json" target="_blank">glin/reactable</a>.
 
 ### How to Use
 
-I have used `pnpm` package manager for this project. Below are the installation instructions
-using `pnpm`.
+For  this project, I have used `pnpm` package manager for this project. Below are the installation instructions using `pnpm`.
 
 To install locally, run the following command:
 
 ```bash
-git clone https://github.com/isaacdarcill/typesense
+git clone https://github.com/isaacdarcilla/typesense
 ```
 
 ### Install Dependencies
@@ -29,13 +33,12 @@ cd typesense
 pnpm install
 ```
 
-After installing the dependencies, create your account and generate API keys in [Typesense](typesense.org)
-Create a new `.env` file, copy and paste the contents from `.env.example`.
+After installing the dependencies, create your account and generate API keys in [Typesense](typesense.org) dashboard. Then, create a new `.env` file, copy and paste the contents from `.env.example` and set the values.
 
 ```
 NEXT_PUBLIC_TYPESENSE_HOST=
-NEXT_PUBLIC_TYPESENSE_PORT=
-NEXT_PUBLIC_TYPESENSE_PROTOCOL=
+NEXT_PUBLIC_TYPESENSE_PORT=443
+NEXT_PUBLIC_TYPESENSE_PROTOCOL=https
 NEXT_PUBLIC_TYPESENSE_ADMIN_API_KEY=
 NEXT_PUBLIC_TYPESENSE_SEARCH_ONLY_API_KEY=
 NEXT_PUBLIC_TYPESENSE_COLLECTION_NAME=
