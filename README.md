@@ -2,6 +2,8 @@
 
 This project is a requirement for Typesense job application. This is a demo that showcases some of [Typesense's](https://github.com/typesense/typesense) features using a 2000 database of movies.
 
+The movie dataset is from <a href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json" target="_blank">glin/reactable</a>, lottie animation is from [Flying searcher](https://lottiefiles.com/animations/flying-searcher-Iy9s6A8pch) and background from [Hero Patterns](https://heropatterns.com/).
+
 ### Technologies Used
 
 - [Typesense](https://typesense.org)
@@ -11,10 +13,8 @@ This project is a requirement for Typesense job application. This is a demo that
 
 ### Prequisites
 
-- [pnpm](https://pnpm.io/installation) // you can still use npm or yarn
+- [pnpm](https://pnpm.io/installation) // or npm or yarn
 - Typesense API
-
-The movie dataset is from <a href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json" target="_blank">glin/reactable</a>.
 
 ### How to Use
 
