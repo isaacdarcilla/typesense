@@ -69,7 +69,7 @@ export default function Home() {
         <h1 className={title({ size: "md" })}>Search&nbsp;</h1>
         <h1 className={title({ color: "violet", size: "md" })}>Movies</h1>
         <br />
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 animate-pulse">
           <small>Powered by </small>
           <a
             href={siteConfig.typesenseSite}
@@ -106,11 +106,11 @@ export default function Home() {
               loop
               animationData={lottieJson}
               play
-              className="mx-auto mt-16 mb-6"
-              style={{ width: 140, height: 140 }}
+              className="mx-auto mb-6"
+              style={{ width: 250, height: 250 }}
             />
             <p className="-mt-3 text-center mx-auto text-md text-gray-500">
-              Search movies. Try{" "}
+              Search movies in an instant. Try{" "}
               <Kbd
                 onClick={() => {
                   handleSearch("Inception");

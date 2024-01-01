@@ -24,3 +24,12 @@ export function formatCurrency(amount: number): string {
 
   return formattedCurrency;
 }
+
+export function formatDate(inputDate: string): string {
+  const options: any = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = new Date(inputDate).toLocaleDateString(
+    "en-US",
+    options,
+  );
+  return formattedDate;
+}

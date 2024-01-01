@@ -1,13 +1,15 @@
-# Typesense Movie Search
+## 🎬 Instant Movie Search, powered by Typesense
 
-This project is a requirement for Typesense job application.
+This project is a requirement for Typesense job application. This is a demo that showcases some of [Typesense's](https://github.com/typesense/typesense) features using a 2000 database of movies.
 
-## Technologies Used
+### Technologies Used
 
 - [Typesense](https://typesense.org)
 - [Next.js 14](https://nextjs.org/docs/getting-started)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+
+The movie dataset is from <a href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json" target="_blank">glin/reactable</a>.
 
 ### How to Use
 
@@ -50,6 +52,8 @@ pnpm typesense:import
 ```bash
 pnpm dev
 ```
+
+Open `http://localhost:3000` to see the app.
 
 ### Run Linter and Formatter
 

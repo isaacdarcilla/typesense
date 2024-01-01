@@ -1,5 +1,5 @@
 import { SearchResult } from "@/types";
-import { formatCurrency, formatTime } from "@/utils/helper";
+import { formatCurrency, formatDate, formatTime } from "@/utils/helper";
 import { Chip, Image } from "@nextui-org/react";
 
 export const Results = ({ results }: { results: SearchResult | null }) => {
@@ -9,14 +9,14 @@ export const Results = ({ results }: { results: SearchResult | null }) => {
         <div className="w-full flex justify-between items-center -mt-4 mx-3">
           <small>
             🔍 {results?.found} results found - Searched {results?.out_of}{" "}
-            recipes in {results?.search_time_ms}ms.
+            movies in {results?.search_time_ms}ms.
           </small>
         </div>
       )}
       {results?.hits?.map((result, index) => (
         <div
           key={index}
-          className="flex flex-row items-center bg-white border border-gray-200 rounded-lg mx-auto max-w-xl hover:scale-105 hover:shadow-lg"
+          className="flex flex-row items-center bg-white border border-gray-200 rounded-xl mx-auto max-w-xl hover:scale-105 hover:shadow-lg"
         >
           <div className="flex flex-col justify-between p-4 leading-normal">
             {result.document.poster_path && (
@@ -65,7 +65,7 @@ export const Results = ({ results }: { results: SearchResult | null }) => {
                 Language: {result.document.original_language || "-"}
               </small>
               <small className="text-tiny">
-                Release Date: {result.document.release_date || "-"}
+                Release Date: {formatDate(result.document.release_date) || "-"}
               </small>
               <small className="text-tiny">
                 Budget: {formatCurrency(Number(result.document.budget)) || "-"}
