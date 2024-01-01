@@ -16,6 +16,21 @@ The movie dataset is from <a href="https://glin.github.io/reactable/articles/pop
 - [pnpm](https://pnpm.io/installation) // or npm or yarn
 - Typesense API
 
+### Folder Structure
+
+    .
+    ├── app                   # App router
+    ├── components            # Resusable components
+    ├── config                # Configs for fonts, site and Typesense
+    ├── data                  # Movie data
+    │   ├── import.ts         # Import functions
+    │   └── movies.jsonl      # Movie json data
+    ├── public                # Static assets to be served
+    ├── styles                # Styling
+    ├── types                 # TS types
+    ├── utils                 # Global helpers
+    └── README.md
+
 ### How to Use
 
 For  this project, I have used `pnpm` package manager for this project. Below are the installation instructions using `pnpm`.
