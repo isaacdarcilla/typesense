@@ -22,6 +22,7 @@ export const Filter = ({
   onSelect: (value: string) => void;
 }) => {
   const [selectedYear, setSelectedYear] = useState("");
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="flex items-center gap-1">
@@ -39,7 +40,7 @@ export const Filter = ({
           </Chip>
         </>
       )}
-      <Popover placement="bottom-end" showArrow>
+      <Popover placement="bottom-end" backdrop="blur" isOpen={open} showArrow>
         <PopoverTrigger>
           <Button
             variant="light"
@@ -47,6 +48,7 @@ export const Filter = ({
             radius="full"
             color="primary"
             isIconOnly
+            onClick={() => setOpen(!open)}
           >
             <FilterIcon />
           </Button>
@@ -65,6 +67,7 @@ export const Filter = ({
                   role="button"
                   onClick={() => {
                     onClearAll();
+                    setOpen(!open);
                     setSelectedYear("");
                   }}
                   className="text-red-500 text-tiny cursor-pointer hover:text-red-700"
@@ -84,6 +87,7 @@ export const Filter = ({
                 onChange={(e) => {
                   setSelectedYear(e.target.value);
                   onSelect(e.target.value);
+                  setOpen(!open);
                 }}
               >
                 {years.map((year) => (
@@ -92,6 +96,15 @@ export const Filter = ({
                   </SelectItem>
                 ))}
               </Select>
+              <Button
+                onClick={() => setOpen(!open)}
+                className="mt-2 w-full"
+                variant="flat"
+                size="sm"
+                color="danger"
+              >
+                Close
+              </Button>
             </div>
           )}
         </PopoverContent>

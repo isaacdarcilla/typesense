@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Typesense",
+  name: "Typesense — Demo built by Isaac",
   description: "Lightning-fast Open Source Search",
   typesenseSite: "https://typesense.org",
   typesenseImage: "https://recipe-search.typesense.org/typesense.b64b6193.svg",
