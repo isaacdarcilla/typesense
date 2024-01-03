@@ -33,9 +33,7 @@ The movie dataset is from <a href="https://glin.github.io/reactable/articles/pop
 
 ### How to Use
 
-For  this project, I have used `pnpm` package manager for this project. Below are the installation instructions using `pnpm`.
-
-To install locally, run the following command:
+Below are the installation instructions using `pnpm`. To install locally, run the following command:
 
 ```bash
 git clone https://github.com/isaacdarcilla/typesense

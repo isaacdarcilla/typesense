@@ -33,3 +33,8 @@ export function formatDate(inputDate: string): string {
   );
   return formattedDate;
 }
+
+export const years = Array.from(
+  { length: 124 },
+  (_, index) => new Date().getFullYear() - index,
+);

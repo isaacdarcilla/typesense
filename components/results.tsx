@@ -7,10 +7,10 @@ export const Results = ({ results }: { results: SearchResult | null }) => {
     <div className="max-w-xl space-y-4">
       {results && (
         <div className="w-full flex justify-between items-center -mt-4 mx-3">
-          <small>
-            🔍 {results?.found} results found - Searched {results?.out_of}{" "}
-            movies in {results?.search_time_ms}ms.
-          </small>
+          <p>
+            🔍 {results?.found} results found out of {results?.out_of} movies in{" "}
+            {results?.search_time_ms}ms.
+          </p>
         </div>
       )}
       {results?.hits?.map((result, index) => (
@@ -54,7 +54,7 @@ export const Results = ({ results }: { results: SearchResult | null }) => {
               <small>{formatTime(Number(result.document.runtime))}</small>
             </div>
 
-            <blockquote className="mb-3 font-normal text-gray-700">
+            <blockquote className="mb-3 font-normal text-gray-700 tracking-tight leading-tight">
               {result.document.overview}
             </blockquote>
 

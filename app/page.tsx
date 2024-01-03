@@ -5,13 +5,13 @@ import { title } from "@/components/primitives";
 import { Results } from "@/components/results";
 import { typesense } from "@/config/typesense";
 import { SearchResult } from "@/types";
-import { Input, Kbd } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
-import Lottie from "react-lottie-player";
-import lottieJson from "../public/animation/movie.json";
 import Image from "next/image";
+import { Intro } from "@/components/intro";
+import { Filter } from "@/components/filter";
 
 export default function Home() {
   const router = useRouter();
@@ -21,7 +21,18 @@ export default function Home() {
   const [searchValue, setSearchValue] = useState(
     searchParams.get("query") || "",
   );
+  const [initialRender, setInitialRender] = useState(true);
   const [searchResults, setSearchResults] = useState<SearchResult | null>(null);
+  const [selectedYear, setSelectedYear] = useState("");
+
+  useEffect(() => {
+    if (initialRender) {
+      setInitialRender(false);
+      return;
+    }
+
+    handleSearch(searchValue);
+  }, [selectedYear]);
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -33,9 +44,10 @@ export default function Home() {
     [searchParams],
   );
 
-  const handleClear = () => {
+  const handleClearAll = () => {
     setSearchResults(null);
     setSearchValue("");
+    setSelectedYear("");
 
     if (inputRef.current) {
       inputRef.current.value = "";
@@ -54,6 +66,7 @@ export default function Home() {
         query_by: "title,tagline,overview",
         limit: 250,
         sort_by: "release_date:desc",
+        filter_by: selectedYear ? `release_date:!${selectedYear}` : undefined,
       })
       .then((searchResults: any) => {
         setSearchResults(searchResults);
@@ -96,32 +109,23 @@ export default function Home() {
           className="max-w-xl mx-auto py-3"
           autoFocus
           type="text"
-          isClearable
-          onClear={handleClear}
           startContent={<SearchIcon className="text-neutral-400 mr-2" />}
-        />
-        {!searchResults && (
-          <>
-            <Lottie
-              loop
-              animationData={lottieJson}
-              play
-              className="mx-auto mb-6"
-              style={{ width: 250, height: 250 }}
+          endContent={
+            <Filter
+              onClearAll={handleClearAll}
+              onClearSelected={() => setSelectedYear("")}
+              onSelect={(value) => setSelectedYear(value)}
             />
-            <p className="-mt-3 text-center mx-auto text-md text-gray-500">
-              Search movies in an instant. Try{" "}
-              <Kbd
-                onClick={() => {
-                  handleSearch("Inception");
-                }}
-                className="text-blue-600 cursor-pointer"
-              >
-                Inception
-              </Kbd>
-              .
-            </p>
-          </>
+          }
+        />
+
+        {!searchResults && (
+          <Intro
+            movie="Inception"
+            onSearch={(movie) => {
+              handleSearch(movie);
+            }}
+          />
         )}
       </div>
 
