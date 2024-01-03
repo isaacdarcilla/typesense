@@ -1,5 +1,5 @@
 import { SearchResult } from "@/types";
-import { formatCurrency, formatDate, formatTime } from "@/utils/helper";
+import { formatCurrency, formatTime } from "@/utils/helper";
 import { Chip, Image } from "@nextui-org/react";
 
 export const Results = ({ results }: { results: SearchResult | null }) => {
@@ -65,7 +65,7 @@ export const Results = ({ results }: { results: SearchResult | null }) => {
                 Language: {result.document.original_language || "-"}
               </small>
               <small className="text-tiny">
-                Release Date: {formatDate(result.document.release_date) || "-"}
+                Release Year: {result.document.release_date || "-"}
               </small>
               <small className="text-tiny">
                 Budget: {formatCurrency(Number(result.document.budget)) || "-"}

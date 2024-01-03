@@ -66,7 +66,7 @@ export default function Home() {
         query_by: "title,tagline,overview",
         limit: 250,
         sort_by: "release_date:desc",
-        filter_by: selectedYear ? `release_date:!${selectedYear}` : undefined,
+        filter_by: selectedYear ? `release_date:${selectedYear}` : undefined,
       })
       .then((searchResults: any) => {
         setSearchResults(searchResults);
