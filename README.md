@@ -1,4 +1,6 @@
-## 🎬 Instant Movie Search, powered by Typesense
+![image](https://github.com/isaacdarcilla/typesense/assets/22732118/5225d97c-88fa-43a5-802f-d753ac54d5ff)
+
+<h2 align="center">🎬 Instant Movie Search, powered by Typesense</h2>
 
 This project is a requirement for Typesense job application. This is a demo that showcases some of [Typesense's](https://github.com/typesense/typesense) features using a 2000 database of movies.
 
