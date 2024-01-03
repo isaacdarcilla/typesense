@@ -4,7 +4,11 @@
 
 This project is a requirement for Typesense job application. This is a demo that showcases some of [Typesense's](https://github.com/typesense/typesense) features using a 2000 database of movies.
 
-The movie dataset is from <a href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json" target="_blank">glin/reactable</a>, lottie animation is from [Flying searcher](https://lottiefiles.com/animations/flying-searcher-Iy9s6A8pch) and background from [Hero Patterns](https://heropatterns.com/).
+The movie dataset is from <a href="https://glin.github.io/reactable/articles/popular-movies/tmdb_movies.json" target="_blank">Reactable</a>, lottie animation is from [Flying searcher](https://lottiefiles.com/animations/flying-searcher-Iy9s6A8pch) and background from [Hero Patterns](https://heropatterns.com/).
+
+### Demo
+
+Live demo is hosted in this subdomain [🌎 typesense.isaacdarcilla.com](https://typesense.isaacdarcilla.com/)
 
 ### Technologies Used
 
